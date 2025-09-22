@@ -24,10 +24,12 @@ const hooks = [
 function Home() {
   return (
     <Layout>
-      <div className="space-y-6">
+      <div className="space-y-6 relative">
+        {/* Background accent */}
+        <div className="pointer-events-none absolute inset-x-0 -top-10 h-48 gradient-blob opacity-60" />
         <Card title="Welcome to React Hooks Lab">
           <div className="space-y-2">
-            <p className="text-gray-700 dark:text-gray-300">This site helps you learn React hooks through short explanations, interactive playgrounds, and real-world examples.</p>
+            <p className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-sky-400 to-emerald-400 font-semibold">This site helps you learn React hooks through short explanations, interactive playgrounds, and real-world examples.</p>
             <p className="text-gray-700 dark:text-gray-300">Scroll down to pick a hook and start exploring. Each page has:</p>
             <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300">
               <li>Overview: What the hook does and when to use it</li>
@@ -39,12 +41,14 @@ function Home() {
 
         <Card title="Hooks Menu">
             {/* Compact bento tiles with minimal padding */}
-            <div className="grid grid-cols-2 md:grid-cols-6 auto-rows-[72px] gap-2">
-              {hooks.map((h) => {
-                const classes = "flex items-center justify-center rounded-lg ring-1 ring-gray-200 dark:ring-gray-700 text-center text-sm font-medium transition hover:bg-gray-50 dark:hover:bg-gray-750 bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-100 px-2";
+            <div className="rounded-xl p-1 grid grid-cols-2 md:grid-cols-5 auto-rows-[72px] gap-3 md:gap-4">
+              {hooks.map((h, idx) => {
+                const base = "flex items-center justify-center rounded-lg ring-1 ring-gray-200 dark:ring-gray-700 text-center text-sm font-medium transition-transform duration-200 hover:scale-[1.02] hover:shadow-md bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-100 px-1";
+                // Bento-style stagger while keeping identical tile sizes
+                const stagger = (idx % 5 === 1) ? 'md:translate-y-1' : (idx % 5 === 3) ? 'md:-translate-y-1' : ''
                 return (
-                  <Link key={h.path} to={h.path} className={classes}>
-                    <span className="truncate max-w-full px-1 leading-5 text-[13px]">{h.label}</span>
+                  <Link key={h.path} to={h.path} className={[base, stagger].join(' ')}>
+                    <span className="truncate max-w-full px-0.5 leading-5 text-[14px] md:text-[15px] font-medium">{h.label}</span>
                   </Link>
                 )
               })}

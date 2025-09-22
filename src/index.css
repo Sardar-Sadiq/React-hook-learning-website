@@ -33,3 +33,17 @@
     @apply text-gray-100 dark:text-gray-100;
   }
 }
+
+@layer utilities {
+  .bg-dot {
+    background-image: radial-gradient(theme('colors.gray.300') 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+  .dark .bg-dot {
+    background-image: radial-gradient(theme('colors.gray.700') 1px, transparent 1px);
+  }
+  .gradient-blob {
+    background: radial-gradient(60% 60% at 30% 30%, rgba(99,102,241,0.35) 0%, rgba(56,189,248,0.25) 35%, rgba(16,185,129,0.25) 70%, rgba(59,130,246,0.15) 100%);
+    filter: blur(40px);
+  }
+}
