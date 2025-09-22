@@ -42,7 +42,7 @@ function BackButton() {
 
 function Layout({ children }) {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
+    <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 flex flex-col">
       <header className="border-b bg-white dark:border-gray-800 dark:bg-gray-900">
         <div className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -55,7 +55,7 @@ function Layout({ children }) {
           <ThemeToggle />
         </div>
       </header>
-      <main className="mx-auto max-w-5xl px-4 py-6">
+      <main className="mx-auto max-w-5xl px-4 py-6 w-full flex-1">
         {children}
       </main>
       <footer className="border-t bg-white dark:border-gray-800 dark:bg-gray-900">

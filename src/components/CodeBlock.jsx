@@ -14,9 +14,9 @@ function CodeBlock({ code, language = 'jsx', className = '' }) {
   }
 
   return (
-    <div className={["relative rounded-lg bg-gray-900 text-gray-100 dark:bg-black", className].join(' ')} data-language={language}>
-      <pre className="overflow-x-auto p-4 text-sm">
-        <code className={`language-${language}`}>
+    <div className={["code-block relative rounded-lg bg-gray-900 text-gray-100 dark:bg-black", className].join(' ')} data-language={language}>
+      <pre className="overflow-x-auto p-4 text-sm text-gray-100">
+        <code className={`language-${language} text-gray-100`}>
           {code}
         </code>
       </pre>
