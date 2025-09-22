@@ -43,7 +43,7 @@ function BackButton() {
 function Layout({ children }) {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 flex flex-col bg-dot">
-      <header className="border-b bg-white dark:border-gray-800 dark:bg-gray-900">
+      <header className="glass border-b border-white/20">
         <div className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <BackButton />
@@ -58,9 +58,9 @@ function Layout({ children }) {
       <main className="mx-auto max-w-5xl px-4 py-6 w-full flex-1">
         {children}
       </main>
-      <footer className="border-t bg-white dark:border-gray-800 dark:bg-gray-900">
-        <div className="mx-auto max-w-5xl px-4 py-4 text-sm text-gray-600 dark:text-gray-300">
-          Built with React and Tailwind CSS
+      <footer className="glass border-t border-white/20">
+        <div className="mx-auto max-w-5xl px-4 py-4 text-sm text-gray-600 dark:text-gray-300 text-center">
+          Built with love 💗
         </div>
       </footer>
     </div>

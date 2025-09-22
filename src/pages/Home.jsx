@@ -40,15 +40,25 @@ function Home() {
         </Card>
 
         <Card title="Hooks Menu">
-            {/* Compact bento tiles with minimal padding */}
-            <div className="rounded-xl p-1 grid grid-cols-2 md:grid-cols-5 auto-rows-[72px] gap-3 md:gap-4">
-              {hooks.map((h, idx) => {
-                const base = "flex items-center justify-center rounded-lg ring-1 ring-gray-200 dark:ring-gray-700 text-center text-sm font-medium transition-transform duration-200 hover:scale-[1.02] hover:shadow-md bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-100 px-1";
-                // Bento-style stagger while keeping identical tile sizes
-                const stagger = (idx % 5 === 1) ? 'md:translate-y-1' : (idx % 5 === 3) ? 'md:-translate-y-1' : ''
+            {/* Bento grid - dark container, equal spacing, exact spans */}
+            <div className="rounded-xl bg-slate-900 p-4 grid grid-cols-2 md:grid-cols-6 auto-rows-[110px] gap-4">
+              {[
+                // Row 1
+                { path: '/hooks/use-state', label: 'useState', span: 'md:col-span-4 md:row-span-2', size: 'text-white font-semibold text-center text-[18px] md:text-[22px] leading-7' },
+                { path: '/hooks/use-reducer', label: 'useReducer', span: 'md:col-span-2 md:row-span-1', size: 'text-white font-semibold text-center' },
+                { path: '/hooks/use-ref', label: 'useRef', span: 'md:col-span-2 md:row-span-1', size: 'text-white font-semibold text-center' },
+                // Row 2
+                { path: '/hooks/use-effect', label: 'useEffect', span: 'md:col-span-2 md:row-span-1', size: 'text-white font-semibold text-center' },
+                { path: '/hooks/use-memo', label: 'useMemo', span: 'md:col-span-2 md:row-span-1', size: 'text-white font-semibold text-center' },
+                { path: '/hooks/latest', label: 'Latest Hooks (useId, useOptimistic)', span: 'md:col-span-2 md:row-span-3', size: 'text-white font-semibold text-center md:text-[17px] leading-6' },
+                // Row 3
+                { path: '/hooks/performance', label: 'Performance (useMemo, useCallback)', span: 'md:col-span-4 md:row-span-2', size: 'text-white font-semibold text-center md:text-[18px] leading-6' },
+              ].map((t, i) => {
+                const base = 'flex items-center justify-center rounded-lg bg-slate-800 text-white text-center px-1';
+                const key = t.key || t.path + '-' + i;
                 return (
-                  <Link key={h.path} to={h.path} className={[base, stagger].join(' ')}>
-                    <span className="truncate max-w-full px-0.5 leading-5 text-[14px] md:text-[15px] font-medium">{h.label}</span>
+                  <Link key={key} to={t.path} className={[base, t.span].join(' ')}>
+                    <span className={["truncate max-w-full px-1", t.size].join(' ')}>{t.label}</span>
                   </Link>
                 )
               })}
