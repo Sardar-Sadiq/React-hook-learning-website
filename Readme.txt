@@ -15,3 +15,5 @@ Next.js Hooks (Essential for the App Router):
     useSearchParams: To read and manipulate URL query parameters.
 
     use client: This isn't a hook, but it's a crucial directive to mark components that need to run on the client side.
+
+    created by sardar sadiq
